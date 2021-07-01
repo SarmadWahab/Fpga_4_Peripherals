@@ -9,6 +9,7 @@
 // Tool versions: Design ISE 14.7
 ////////////////////////////////////////////////////////////////////////////////
 
+`include "give_your_local_location\mg995_parameters.v"
 
 module pwm_uart
    (Clk_i,
@@ -18,21 +19,7 @@ module pwm_uart
     Tx_o
 );
 
-   parameter single_bit_p           = 1'b1;
-   parameter high_p                 = 1;
-   parameter low_p                  = 0;
-   parameter data_length_p          = 17;
-   parameter uart_max_frame_p       = 40;
-   parameter uart_data_length_p     = 8;
-   parameter baud_rate_p            = 5208;            // Using 50 Mhz for 9600 baud rate (50 x 1000000/9600  = 5208)
-   parameter idle_p                 = 2'b00, start_p = 2'b01, transmit_data_p = 2'b10, stop_p = 2'b11;
-   parameter size_p                 = 2;
-   parameter angle_0_hex_code_p     = 40'h0C50B00000;  // 0   + CR + LF => whenever angle 0 or 0.5ms configuration is selected 0 will be printed via Uart Port
-   parameter angle_90_hex_code_p    = 40'h9C0C50b000;  // 90  + CR + LF => whenever angle 90 or 1.5ms configuration is selected 90 will be printed via Uart Port
-   parameter angle_180_hex_code_p   = 40'h8C1C0C50B0;  // 180 + CR + LF => whenever angle 180 or 2.5ms configuration is selected 180 will be printed via Uart Port
-   parameter all_bits_one_p         = 40'hFFFFFFFFFF;  // This parameter is used to avoid optimizing warnings (it can be omitted)
-   
-   
+ 
 
    input                       Clk_i, Reset_i, Enable_i;
    input  [data_length_p-1 :0] Data_i;

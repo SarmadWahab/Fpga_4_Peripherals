@@ -8,7 +8,7 @@
 // Target Device: Xilinx Spartan 6
 // Tool versions: Design ISE 14.7
 ////////////////////////////////////////////////////////////////////////////////
-
+`include "give_your_local_location\mg995_parameters.v"
 
 module pwm_monitor
   (
@@ -20,17 +20,6 @@ module pwm_monitor
    Available_o
 );
 
-   parameter single_bit_p                = 1'b1;
-   parameter high_p                      = 1;
-   parameter low_p                       = 0;
-   parameter duty_cycle_counter_length_p = 17;
-   parameter angle_0_clock_cycles_p      = 25000;     // Clock cycles for pwm signal   using 50Mhz (0.5ms or 0   angle)
-   parameter angle_90_clock_cycles_p     = 75000;     // Clock cycles for pwm signal   using 50Mhz (1.5ms or 90  angle)
-   parameter angle_180_clock_cycles_p    = 125000;    // Clock cycles for pwm signal   using 50Mhz (2.5ms or 180 angle)
-   parameter mux_sel_length_p            = 2;
-   parameter all_bits_one_p              = 17'h1FFFF; // This parameter is used to ignore optimizng warnings (it can be omitted)
-   parameter some_bits_one_p             = 17'h01208; //This parameter is used to ignore optimizng warnings (it can be omitted)
-	
 
    input  Clk_i, Reset_i, Pwm_i;
    input  [mux_sel_length_p-1 :0]             Sel_i;

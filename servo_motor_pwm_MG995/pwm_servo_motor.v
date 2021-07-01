@@ -8,7 +8,7 @@
 // Target Device: Xilinx Spartan 6
 // Tool versions: Design ISE 14.7
 ////////////////////////////////////////////////////////////////////////////////
-
+`include "give_your_local_location\mg995_parameters.v"
 
 module pwm_servo_motor
    (
@@ -18,17 +18,6 @@ module pwm_servo_motor
     Pwm_o
 );
 
-   parameter single_bit_p             = 1'b1;
-   parameter high_p                   = 1; 
-   parameter low_p                    = 0;
-   parameter stable_clock_cycles_p    = 7;         // 8 clock cycles to check whether input signal is stable or not
-   parameter pwm_clock_cycles_p       = 1000000;   // Clock cycles for pwm signal   using 50Mhz (20ms)
-   parameter pwm_counter_length_p     = 20;        // Counter length for pwm signal using 50Mhz (20ms)
-   parameter angle_0_clock_cycles_p   = 25000;     // Clock cycles for pwm signal   using 50Mhz (0.5ms or 0   angle)
-   parameter angle_90_clock_cycles_p  = 75000;     // Clock cycles for pwm signal   using 50Mhz (1.5ms or 90  angle)
-   parameter angle_180_clock_cycles_p = 125000;    // Clock cycles for pwm signal   using 50Mhz (2.5ms or 180 angle)
-   parameter mux_sel_length_p         = 2;
-   parameter all_bits_one_p           = 17'h1FFFF; // This is used to bypass the optimizing warnings !!! (it can be omitted)
    
    input  Clk_i, Reset_i;
    input  [mux_sel_length_p-1:0] Sel_angle_i;
@@ -48,7 +37,7 @@ module pwm_servo_motor
   
    always @ (posedge Clk_i or negedge Reset_i)  // This block is responsible to select the correct pwm configuration
      begin
-	if(Reset_i == 1'b0)
+	if(Reset_i == low_p)
 	  begin
 	     angle_clock_cycles_r <= low_p;
 	     sel_r                <= low_p;
@@ -128,7 +117,7 @@ module pwm_servo_motor
 		  input_is_stable_r <= low_p;
 	       end
 	  end
-     end // always @ (posedge Clk_i)
+     end
 
    always @ (posedge Clk_i or negedge Reset_i) // Input is stable, pwm_counter will start counting
      begin
@@ -147,7 +136,7 @@ module pwm_servo_motor
 		  pwm_counter_r <= low_p;
 	       end
 	  end
-     end // always @ (posedge Clk_i)
+     end
 
    always @ (posedge Clk_i or negedge Reset_i) // Generating 0,90,180 or 0.5ms, 1.5ms & 2.5ms pwm signal
      begin

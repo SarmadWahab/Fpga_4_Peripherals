@@ -10,6 +10,8 @@
 // Tool versions: Design ISE 14.7
 ////////////////////////////////////////////////////////////////////////////////
 
+`include "give_your_local_location\mg995_parameters.v"
+
 module top_pwm_tb;
 
 	// Inputs
