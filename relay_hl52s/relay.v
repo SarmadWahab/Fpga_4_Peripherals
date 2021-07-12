@@ -1,3 +1,19 @@
+////////////////////////////////////////////////////////////////////////////////
+// Company: DIY Projects
+// Engineer: Sarmad Wahab
+//
+// Create Date: 11.07.2021
+// Design Name: Relay 
+// Module Name: relay module
+// Target Device: Xilinx Spartan 6
+// Tool versions: Design ISE 14.7
+////////////////////////////////////////////////////////////////////////////////
+
+`include "give_your_local_location\hl52s_parameters.v"
+
+
+
+
 module relay
    (
     Clk_i,
@@ -81,4 +97,4 @@ module relay
  
    
 
-endmodule //
+endmodule
