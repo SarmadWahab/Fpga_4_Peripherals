@@ -8,7 +8,7 @@
 // Target Device: Xilinx Spartan 6
 // Tool versions: Design ISE 14.7
 ////////////////////////////////////////////////////////////////////////////////
-`include "G:\Git\git_us_updated\hcsr04_parameters.v"
+`include "give_your_local_location\hcsr04_parameters.v"
 
 module ultrasonic_sensor_echo
   (

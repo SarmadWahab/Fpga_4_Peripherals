@@ -9,6 +9,8 @@
 // Tool versions: Design ISE 14.7
 ////////////////////////////////////////////////////////////////////////////////
 
+`include "give_your_local_location\hcsr04_parameters.v"
+
 module ultrasonic_sensor_top
   (
    Clk_i,
