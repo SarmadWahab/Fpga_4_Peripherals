@@ -1,0 +1,71 @@
+`ifndef _adxl345_parameters_h
+`define _adxl345_parameters_h
+
+
+parameter high_p                            = 1'b1;
+parameter low_p                             = 1'b0;
+parameter zero_p                            = 0;
+parameter one_p                             = 1;
+parameter fsm_wait_p                        = 2'b01;
+parameter fsm_activate_p                    = 2'b10;
+parameter fsm_burst_read_p                  = 2'b11;
+parameter stop_time_p                       = 10'd750; // 1.5us
+parameter data_length_p                     = 5'h10;
+parameter delay_p                           = 5'd20;
+parameter i2c_fsm_idle_p                    = 3'd0;
+parameter i2c_fsm_start_p                   = 3'd1;
+parameter i2c_fsm_slave_address_p           = 3'd2;      // Read/Write bit included !!! 
+parameter i2c_fsm_slave_ack_p               = 3'd3;
+parameter i2c_fsm_reg_address_p             = 3'd4;
+parameter i2c_fsm_repeated_start_p          = 3'd5;
+parameter i2c_fsm_data_to_read_p            = 3'd6;
+parameter i2c_time_period                   = 10'd1000;  //100Khz
+parameter registers_to_read_p               = 1;         // How many times single read should be executed
+parameter eight_clock_cycles_p              = 4'd8;
+parameter positive_edge_p                   = 9'd325;
+parameter all_ones_p                        = 11'h7FF;
+parameter i2c_fsm_state_length_p            = 2'd2;
+parameter i2c_fsm_data_to_write_p           = 3'd5;
+parameter registers_to_write_p              = 1;         // How many times single write should be executed
+parameter number_of_axes_p                  = 3'd6;
+parameter i2c_duty_cycle_counter_length_p   = 4'd9;
+parameter fsm_start_p         		    = 3'd1;
+parameter fsm_ch_mod_p        		    = 3'd2;
+parameter fsm_mantissa_mod_p                = 3'd3;
+parameter fsm_end_p           		    = 3'd4;
+parameter divider_latency_0_p 		    = 30;
+parameter divider_latency_1_p 		    = 30;
+parameter accel_resolution_p  		    = 16'd256;
+parameter mod_by_10_p         		    = 16'd10; 
+parameter right_shift_p                     = 8;
+parameter multiply_by_1000_p                = 10'd100;
+parameter division_stages_p                 = 1;
+parameter total_number_of_axes              = 3;
+parameter offset_p                          = 10'hF;
+parameter data_converter_internal_counter_p = 3'd4;
+parameter mantissa_length_p                 = 5'd23;
+parameter single_bit_p                      = 1'b1;
+parameter adxl345_inactive_p                = 33'h3DEADDEAD;
+parameter minus_p                           = 8'h2D;
+parameter x_p                               = 8'h78;
+parameter y_p                               = 8'h79;
+parameter z_p                               = 8'h7A;
+parameter equal_p                           = 8'h3D;
+parameter space_p                           = 8'h20;
+parameter dot_p                             = 8'h2E;
+parameter ascii_prefix_p                    = 4'h03;
+parameter lf_p                              = 8'h0A;
+parameter cr_p                              = 8'h0D;
+parameter uart_data_length_p 		    = 8;
+parameter uart_frames_p      		    = 25;
+parameter uart_frame_counter_p              = 3'd4;
+parameter baud_rate_p        		    = 5208;
+parameter fsm_uart_idle_p   		    = 2'd0;
+parameter fsm_uart_start_p                  = 2'd1;
+parameter fsm_uart_transmit_data_p          = 2'd2;
+parameter fsm_uart_stop_p                   = 2'd3;
+parameter uart_data_frame_length_p          = 8'd199;
+parameter uard_baud_rate_length_p           = 4'hC;
+parameter characteristics_mantissa_length_p = 6'd32;
+
+`endif
